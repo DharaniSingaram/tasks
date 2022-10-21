@@ -4,9 +4,11 @@
  *      C = (F - 32) * 5/9
  */
 export function fahrenheitToCelius(temperature: number): number {
-    return 0;
+    const C = (temperature - 32) * (5 / 9);
+    return C;
 }
 
+fahrenheitToCelius(5);
 /**
  * Consumes three numbers and produces their sum. BUT you should only add a number
  * if the number is greater than zero.
@@ -14,6 +16,8 @@ export function fahrenheitToCelius(temperature: number): number {
 export function add3(first: number, second: number, third: number): number {
     return 0;
 }
+
+add3(1, 2, 3);
 
 /**
  * Consumes a string and produces the same string in UPPERCASE and with an exclamation
