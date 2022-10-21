@@ -4,20 +4,30 @@
  *      C = (F - 32) * 5/9
  */
 export function fahrenheitToCelius(temperature: number): number {
-    const C = (temperature - 32) * (5 / 9);
+    let C = 0;
+    C = (temperature - 32) * (5 / 9);
     return C;
 }
 
-fahrenheitToCelius(5);
 /**
  * Consumes three numbers and produces their sum. BUT you should only add a number
  * if the number is greater than zero.
  */
 export function add3(first: number, second: number, third: number): number {
-    return 0;
-}
+    let S = 0;
+    if (first > 0) {
+        S += first;
+    }
 
-add3(1, 2, 3);
+    if (second > 0) {
+        S += second;
+    }
+
+    if (third > 0) {
+        S += third;
+    }
+    return S;
+}
 
 /**
  * Consumes a string and produces the same string in UPPERCASE and with an exclamation
@@ -42,4 +52,7 @@ export function isQuestion(message: string): boolean {
  */
 export function convertYesNo(word: string): boolean | null {
     return true;
+}
+function and(arg0: boolean) {
+    throw new Error("Function not implemented.");
 }
