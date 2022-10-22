@@ -44,8 +44,8 @@ export function shout(message: string): string {
  * mark. Do not use an `if` statement in solving this question.
  */
 export function isQuestion(message: string): boolean {
-    let x = message.endsWith("?");
-    return x;
+    let y = message.endsWith("?");
+    return y;
 }
 
 /**
@@ -54,7 +54,14 @@ export function isQuestion(message: string): boolean {
  * upper or lower case), then return `false`. Otherwise, return `null`.
  */
 export function convertYesNo(word: string): boolean | null {
-    return true;
+    if (word == "yes" || word == "YES") {
+        return true;
+    }
+    if (word == "no" || word == "NO") {
+        return false;
+    } else {
+        return null;
+    }
 }
 function and(arg0: boolean) {
     throw new Error("Function not implemented.");
