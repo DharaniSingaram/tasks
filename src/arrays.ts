@@ -77,7 +77,9 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    const y = (word: string): boolean => word.length < 4;
+    const z = words.filter(y);
+    return z.length;
 }
 
 /**
@@ -85,9 +87,17 @@ export function countShortWords(words: string[]): number {
  * the colors are either 'red', 'blue', or 'green'. If an empty list is given,
  * then return true.
  */
-export function allRGB(colors: string[]): boolean {
-    return false;
-}
+//export function allRGB(colors: string[]): boolean {
+//    const y = colors.map((x: string): string => {
+//        if (colors == "red" && "blue" && "green":) {
+//           return true;
+//       } else if (numbers.length >= 2) {
+//            x.splice(0, 0, numbers[0]);
+//            x.splice(1, 0, numbers[numbers.length - 1]);
+//        }
+//    });
+//    return false;
+//}
 
 /**
  * Consumes an array of numbers, and produces a string representation of the
