@@ -125,5 +125,30 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    let negative = false;
+    const s = values.reduce((prev, next) => {
+        if (negative) {
+            return prev;
+        }
+        if (next < 0 && negative == false) {
+            negative = true;
+            return prev;
+        }
+        return prev + next;
+    }, 0);
+    let index;
+    let neg = false;
+    const y = values.map((x: number): number => {
+        if (x < 0 && neg == false) {
+            index = values.indexOf(x);
+            neg = true;
+            return x;
+        } else return x;
+    });
+    if (!index && index !== 0) {
+        y.push(s);
+    } else {
+        y.splice(index + 1, 0, s);
+    }
+    return y;
 }
