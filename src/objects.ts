@@ -13,10 +13,10 @@ export function makeBlankQuestion(
     return {
         id: id,
         name: name,
-        body: "",
         type: type,
-        options: [],
+        body: "",
         expected: "",
+        options: [],
         points: 1,
         published: false
     };
@@ -92,8 +92,11 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    question.name = newName;
-    return question;
+    const questionNew = {
+        ...question,
+        name: newName
+    };
+    return questionNew;
 }
 
 /**
