@@ -34,6 +34,12 @@ export function findQuestion(
     questions: Question[],
     id: number
 ): Question | null {
+    for (let i = 0; i < questions.length; i++) {
+        if (questions[i].id == id) {
+            return questions[i];
+        }
+    }
+
     return null;
 }
 
