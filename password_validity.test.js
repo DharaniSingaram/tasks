@@ -1,0 +1,1 @@
+import { CheckPassword } from "./inputtxt";
