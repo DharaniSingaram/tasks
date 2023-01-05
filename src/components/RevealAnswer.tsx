@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 export function RevealAnswer(): JSX.Element {
-    const [visible, setVisible] = useState<boolean>(true);
+    const [answerVisible, setAnswerVisible] = useState(false);
+    const [answer] = useState("The answer is 42");
 
-    function flipVisibility(): void {
-        setVisible(!visible);
+    function handleRevealAnswer() {
+        setAnswerVisible(!answerVisible);
     }
+
     return (
-        <div>
-            <Button onClick={flipVisibility}>Reveal Answer</Button>
-            {visible && <div> 42</div>}
-        </div>
+        <>
+            <Button onClick={handleRevealAnswer}>
+                {answerVisible ? "Hide Answer" : "Reveal Answer"}
+            </Button>
+            {answerVisible && <p>{answer}</p>}
+        </>
     );
 }
