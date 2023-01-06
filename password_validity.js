@@ -11,7 +11,7 @@ function isValidPassword(password) {
         return false;
     }
 
-    if (/^[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+    if (/^[0-9!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)) {
         return false;
     }
 
