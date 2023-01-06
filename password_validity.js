@@ -1,10 +1,19 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function CheckPassword(inputtxt) {
-    var passw =
-        /^[A-Za-z]\w(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{16}$/;
-    if (inputtxt.value.match(passw)) {
-        return true;
-    } else {
+function isValidPassword(password) {
+    if (password.length !== 16) {
         return false;
     }
+
+    if (!/[0-9]/.test(password) || !/[a-zA-Z]/.test(password)) {
+        return false;
+    }
+
+    if (!/[^0-9a-zA-Z]/.test(password)) {
+        return false;
+    }
+
+    if (/^[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+        return false;
+    }
+
+    return true;
 }
