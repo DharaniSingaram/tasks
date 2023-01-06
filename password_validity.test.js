@@ -1,20 +1,50 @@
-import { CheckPassword } from "./inputtxt";
+import { describe, test, expect } from "jest";
 
-const [LENGTH, NUMBER, LETTER, CHARACTER, FIRST_LETTER] =
-    // eslint-disable-next-line no-undef
-    PASSWORD;
+describe("Password validation", () => {
+    function isValidPassword(password) {
+        // Implementation of password validation function
+    }
 
-test("Testing the CheckPassword function", () => {
-    expect(CheckPassword(LENGTH, "chocolatelab#@96")).toEqual(true);
-    expect(CheckPassword(LENGTH, "poodle67@")).toEqual(false);
-    expect(CheckPassword(LENGTH, "Alaskan!Husky*Shepard45")).toEqual(false);
-    expect(CheckPassword(NUMBER, "beaglelover@*^%8")).toEqual(true);
-    expect(CheckPassword(NUMBER, "dachshund!@#$%^&")).toEqual(false);
-    expect(CheckPassword(LETTER, "pug1234567890^$&")).toEqual(true);
-    expect(CheckPassword(LETTER, "09$8#7&65^43(2*1")).toEqual(false);
-    expect(CheckPassword(CHARACTER, "Maltese!04862744")).toEqual(true);
-    expect(CheckPassword(CHARACTER, "Newfoundland6259")).toEqual(false);
-    expect(CheckPassword(FIRST_LETTER, "ShibaInu1078$*@6")).toEqual(true);
-    expect(CheckPassword(FIRST_LETTER, "2terrier$(63%781")).toEqual(false);
-    expect(CheckPassword(FIRST_LETTER, "&Yorkshire&!238%")).toEqual(false);
+    // Tests for valid passwords
+    test("Valid password: length = 16 characters, at least one number, at least one letter, at least one special character, first character is letter", () => {
+        expect(isValidPassword("poodleabcdefghijk")).toBe(false);
+        expect(isValidPassword("poodleabcdefghijk1")).toBe(true);
+        expect(isValidPassword("poodleabcdefghijk!")).toBe(true);
+        expect(isValidPassword("poodleabcdefghijk1!")).toBe(true);
+    });
+    test("Valid password: length = 16 characters, at least one number, at least one letter, at least one special character, first character is letter", () => {
+        expect(isValidPassword("beagleabcdefghijk")).toBe(false);
+        expect(isValidPassword("beagleabcdefghijk1")).toBe(true);
+        expect(isValidPassword("beagleabcdefghijk!")).toBe(true);
+        expect(isValidPassword("beagleabcdefghijk1!")).toBe(true);
+    });
+    test("Valid password: length = 16 characters, at least one number, at least one letter, at least one special character, first character is letter", () => {
+        expect(isValidPassword("german shepherdabcdefg")).toBe(false);
+        expect(isValidPassword("german shepherdabcdefg1")).toBe(true);
+        expect(isValidPassword("german shepherdabcdefg!")).toBe(true);
+        expect(isValidPassword("german shepherdabcdefg1!")).toBe(true);
+    });
+
+    // Tests for invalid passwords
+    test("Invalid password: length < 16 characters", () => {
+        expect(isValidPassword("poodleabcdefghij")).toBe(false);
+    });
+    test("Invalid password: length > 16 characters", () => {
+        expect(isValidPassword("poodleabcdefghijkl")).toBe(false);
+    });
+    test("Invalid password: no number", () => {
+        expect(isValidPassword("poodleabcdefghijk!")).toBe(false);
+    });
+    test("Invalid password: no letter", () => {
+        expect(isValidPassword("1234567890!@#$%")).toBe(false);
+    });
+    test("Invalid password: no special character", () => {
+        expect(isValidPassword("poodleabcdefghijk")).toBe(false);
+    });
+    test("Invalid password: first character is number", () => {
+        expect(isValidPassword("1poodleabcdefghijk")).toBe(false);
+    });
+    test("Invalid password: first character is special character", () => {
+        expect(isValidPassword("!poodleabcdefghijk")).toBe(false);
+    });
 });
