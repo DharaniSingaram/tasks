@@ -6,7 +6,9 @@ import userEvent from "@testing-library/user-event";
 describe("Some HTML Elements are added.", () => {
     test("There is a header", () => {
         render(<App />);
-        const header = screen.getByRole("heading");
+        const header = screen
+            .getByText(/Dharani Singaram UD CISC275/i)
+            .closest(".heading");
         expect(header).toBeInTheDocument();
     });
 
